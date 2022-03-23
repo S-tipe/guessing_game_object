@@ -10,7 +10,6 @@ class Result:
         self.date = date
 
 
-# Function for playing the game
 def play_game():
     secret = random.randint(1, 30)
     attempts = 0
@@ -38,21 +37,18 @@ def play_game():
             print("Your guess is not correct... try something bigger")
 
 
-# Get a list of all scores
 def get_score_list():
     with open("score_list.json", "r") as score_file:
         score_list = json.loads(score_file.read())
         return score_list
 
 
-# Return top 3 scores
 def get_top_scores():
     score_list = get_score_list()
     top_score_list = sorted(score_list, key=lambda k: k['attempts'])[:3]
     return top_score_list
 
 
-# Run the game
 while True:
     selection = input("Would you like to A) play a new game, B) see the best scores, or C) quit? ")
 
